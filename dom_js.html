@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Паспорт и Формы</title>
+    <link rel="stylesheet" href="./css/style.css"> 
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0; 
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+            background: url('./img/pasport/bg.png') no-repeat center center / cover;
+            background-attachment: scroll; 
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #006DFE;
+        }
+
+        .header {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            transition: transform 0.3s; 
+        }
+
+        .header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            max-width: 1200px; 
+        }
+
+        .passport {
+            width: 600px;
+            height: 800px;
+            background: url('./img/pasport/IMG_8253.JPG') no-repeat center center / cover;
+            padding: 20px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .field {
+            font-size: 14px;
+            color: #000;
+            position: absolute;
+        }
+
+        .input-field {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            color: #000;
+        }
+
+        /* Passport fields */
+        #surname { top: 454px; left: 270px; width: 300px; }
+        #name { top: 515px; left: 270px; width: 300px; }
+        #patronymic { top: 550px; left: 270px; width: 300px; }
+        #birthDate { top: 577px; left: 370px; width: 200px; }
+        #gender { top: 577px; left: 240px; width: 200px; }
+        #birthPlace { top: 610px; left: 270px; width: 200px; }
+        #whogive { top: 70px; left: 120px; width: 200px; }
+        #dategive { top: 160px; left: 120px; width: 200px; }
+        #kode { top: 160px; left: 360px; width: 200px; }
+
+        .photo {
+            position: absolute;
+            top: 470px; 
+            left: 25px;
+            width: 170px;
+            height: 223px;
+            overflow: hidden;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .file-input {
+            position: absolute;
+            top: 710px;
+            left: 0px;
+        }
+
+        /* Form styles */
+        form {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 600px;
+            position: relative;
+        }
+        .passport-form__wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .passport-form__button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #006DFE;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .translated-form__wrap {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header start -->
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__wrapper">
+                <nav class="header__nav">
+                    <ul class="header__list">
+                        <li class="header__item"><a href="index.html" class="header__link">General</a></li>
+                        <li class="header__item"><a href="algorithm_solution.html" class="header__link">Algorithmic task</a></li>
+                        <li class="header__item"><a href="dom_js.html" class="header__link">DOM_JS</a></li>
+                        <li class="header__item"><a href="Table.html" class="header__link">Drift cars</a></li>
+                        <li class="header__item"><a href="Form.html" class="header__link">Form</a></li>
+                        <li><a href="https://electives.hse.ru/minor_programming_spb/" class="header__link">Minor's website</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Header end -->
+
+    <h1>Паспорт</h1>
+    <div class="passport">
+        <div id="surname" class="field"><input type="text" class="input-field" placeholder="Фамилия"></div>
+        <div id="name" class="field"><input type="text" class="input-field" placeholder="Имя"></div>
+        <div id="patronymic" class="field"><input type="text" class="input-field" placeholder="Отчество"></div>
+        <div id="birthDate" class="field"><input type="text" class="input-field" placeholder="Дата рождения"></div>
+        <div id="gender" class="field"><input type="text" class="input-field" placeholder="Пол"></div>
+        <div id="birthPlace" class="field"><input type="text" class="input-field" placeholder="Место рождения"></div>
+        <div id="whogive" class="field"><input type="text" class="input-field" placeholder="Кем выдачи"></div>
+        <div id="dategive" class="field"><input type="text" class="input-field" placeholder="Дата выдачи"></div>
+        <div id="kode" class="field"><input type="text" class="input-field" placeholder="Код подразделения"></div>
+        <div class="photo" id="photo"><img id="photoImage" src="" alt="Фото"></div>
+        <input type="file" class="file-input" accept="image/*" onchange="loadPhoto(event)">
+    </div>
+
+    <h1>Переведенный паспорт</h1>
+    <form action="https://example.com/submit_translated_data" method="post" class="passport-form">
+        <fieldset class="passport-form__wrap">
+            <legend>Введите данные паспорта</legend>
+            <label>Фамилия: <input type="text" id="surnameInput" required></label>
+            <label>Имя: <input type="text" id="nameInput" required></label>
+            <label>Отчество: <input type="text" id="patronymicInput" required></label>
+            <label>Дата рождения: <input type="text" id="birthDateInput" required></label>
+            <button type="button" class="passport-form__button" onclick="translateToLatin()">Перевести на английский</button>
+        </fieldset>
+
+        <fieldset class="translated-form__wrap">
+            <legend>Переведенные данные</legend>
+            <p>Фамилия: <span id="translatedSurname"></span></p>
+            <p>Имя: <span id="translatedName"></span></p>
+            <p>Отчество: <span id="translatedPatronymic"></span></p>
+            <p>Дата рождения: <span id="translatedBirthDate"></span></p>
+            <input type="submit" value="Отправить переведенные данные">
+        </fieldset>
+    </form>
+    <script>
+        function translateToLatin() {
+            const cyrToLatMap = {
+                'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'E', 'Ж': 'Zh',
+                'З': 'Z', 'И': 'I', 'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N', 'О': 'O',
+                'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U', 'Ф': 'F', 'Х': 'Kh', 'Ц': 'Ts',
+                'Ч': 'Ch', 'Ш': 'Sh', 'Щ': 'Shch', 'Ы': 'Y', 'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya',
+                'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
+                'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+                'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts',
+                'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ы': 'y', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+            };
+
+            function cyrToLat(text) {
+                return text.split('').map(char => cyrToLatMap[char] || char).join('');
+            }
+
+            document.getElementById('translatedSurname').textContent = cyrToLat(document.getElementById('surnameInput').value);
+            document.getElementById('translatedName').textContent = cyrToLat(document.getElementById('nameInput').value);
+            document.getElementById('translatedPatronymic').textContent = cyrToLat(document.getElementById('patronymicInput').value);
+            document.getElementById('translatedBirthDate').textContent = document.getElementById('birthDateInput').value;
+        }
+    </script>
+    <script>
+        function loadPhoto(event) {
+            const photo = document.getElementById('photoImage');
+            photo.src = URL.createObjectURL(event.target.files[0]);
+            photo.onload = () => URL.revokeObjectURL(photo.src);
+        }
+        
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                header.classList.add('hidden'); 
+            } else {
+                header.classList.remove('hidden'); 
+            }
+            lastScrollTop = scrollTop; 
+        });
+    </script>
+</body>
+</html>

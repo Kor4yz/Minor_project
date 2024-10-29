@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Японские Дрифт Автомобили</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        /* Базовый сброс стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./img/table/bg.jpg'); 
+            background-size: cover;
+            background-attachment: fixed;
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            text-align: center;
+            margin: 20px 0;
+            color: white;
+        }
+
+        /* Стили таблицы */
+        table {
+            width: 1080px;
+            margin: 100px auto; 
+            border-collapse: collapse;
+            background-image: url("./img/table/table-bgjpg.jpg"); 
+            background-size: cover;
+            border: 2px solid rgba(166, 0, 255, 0.3); 
+            border-spacing: 15px;
+            padding: 10px;
+        }
+
+
+        td, th {
+            border: 2px solid rgba(166, 0, 255, 0.3);
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .image-cell {
+            background-image: url(./img/table/once.png); 
+            background-size: cover;
+            height: auto;
+            width: 450px;
+        }
+
+        .logo-cell img {
+            width: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .green-bg {
+            background-color: rgba(40, 23, 172, 0.3);
+        }
+
+        .mini-image {
+            width: 50px;
+            padding: 10px;
+        }
+        .header {
+            position: relative; 
+            width: 100%; 
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header start -->
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__wrapper">
+                <nav class="header__nav">
+					<div class="header__nav-close">
+						<ul class="header__list">
+                            <li class="header__item">
+                                <a href="index.html" class="header__link">General</a>
+                            </li>
+                            <li class="header__item">
+                                <a href="algorithm_solution.html" class="header__link">Algorithmic task</a>
+                            </li>
+                            <li class="header__item">
+                                <a href="dom_js.html" class="header__link">DOM_JS</a>
+                            </li>
+                            <li>
+                                <a href="https://electives.hse.ru/minor_programming_spb/" class="header__link">Minor's website</a>
+                            </li>                            
+                        </ul>
+					</div>
+                    <div class="header__nav-close">
+						<ul class="header__list">
+                            <li class="header__item">
+                                <a href="Table.html" class="header__link">Drift cars</a>
+                            </li>                          
+                        </ul>
+					</div>
+				</nav>
+				<div class="header__burger burger">
+					<span class="burger__line burger__line_first"></span>
+					<span class="burger__line burger__line_second"></span>
+					<span class="burger__line burger__line_third"></span>
+				</div>
+            </div>
+        </div>
+    </header>
+    <!-- Header end -->
+
+<h3>Таблица: Японские Дрифт Автомобили</h3>
+
+<table>
+<!-- Первая строка с логотипом бренда -->
+<tr>
+    <td colspan="3" class="logo-cell" style="background-color: black;">
+        <img src="./img/table/gtr-logo.jpg" alt="Логотип бренда Nissan GTR" style="width: 30%; height: 100%;">
+    </td>
+</tr>
+
+
+
+    <!-- Вторая строка с изображениями автомобилей -->
+    <tr>
+        <td class="logo-cell">
+            <img src="./img/table/supra.png" alt="Дрифт-Автомобиль" style="width: 100%; height: auto;">
+            <p>Лучший дрифт-кар</p>
+        </td>
+        <td></td>
+        <td class="image-cell">
+        </td>
+    </tr>
+
+    <!-- Третья строка с ссылкой -->
+    <tr>
+        <td colspan="3" style="height: 20px;">
+            <a href="https://www.jdmbuysell.com/jdm-importing-tips/10-best-jdm-drift-cars/" target="_blank" style="color: white; text-decoration: none; font-weight: bold; font-size: 30px;">Ссылка на сайт про дрифт</a>
+        </td>
+    </tr>
+    <!-- Четвертая строка с текстом Описание и Контакты -->
+    <tr>
+        <td class="green-bg" style="width: 400px; height: 300px; color: rgb(123, 243, 252); padding: 15px; font-size: 16px;">
+            <h4>Описание</h4>
+            <p>
+                Дрифт зародился в Японии на горных дорогах и стал неотъемлемой частью японской автомобильной культуры. 
+                Это не просто способ пройти поворот, а настоящее искусство управления автомобилем. С каждым годом дрифт 
+                в Японии становится все популярнее, привлекая как местных водителей, так и туристов со всего мира. 
+                Благодаря легендарным японским дрифт-автомобилям, таким как Nissan Silvia и Toyota AE86, страна приобрела 
+                статус одного из мировых центров дрифтинга.
+            </p>
+        </td>
+        <td class="green-bg" style="height: 300px; color:rgb(123, 243, 252); padding: 15px; font-size: 16px;">
+            <h4>Контакты</h4>
+            <p>
+                Телефон: +81-DRIFT-007<br>
+                Email: crazy@driftmasters.jp<br>
+                Адрес: г. Токио, ул. Дрифт, д. 86<br>
+                Instagram: @superfast_drivers<br>
+                Telegram: @tokyo_drift_gurus<br>
+                VK: vk.com/driftmasters_ru
+            </p>
+        </td>
+        <td class="green-bg" style="height: 300px; color:rgb(123, 243, 252); padding: 15px; font-size: 16px;">
+            <h4>Лучшие дрифт-школы в Японии</h4>
+            <p>
+                <strong>Tokyo Drift Academy</strong><br>
+                Адрес: Токио, ул. Дрифт, д. 123<br>
+                Телефон: +81-03-DRIFT1<br>
+                Веб-сайт: tokyo-drift-academy.jp<br><br>
+        
+                <strong>Osaka Slide Masters</strong><br>
+                Адрес: Осака, ул. Скорости, д. 42<br>
+                Телефон: +81-06-OSLIDE<br>
+                Веб-сайт: osakaslide.jp<br><br>
+        
+                <strong>Mount Fuji Drift School</strong><br>
+                Адрес: преф. Сидзуока, район Фудзи<br>
+                Телефон: +81-555-MFDRIFT<br>
+                Веб-сайт: mountfuji-drift.jp<br>
+            </p>
+        </td>
+        
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Решение алгоритмической задачи</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f9;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: #116466;
+            padding: 10px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav__list {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav__link {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+
+        .nav__link.active,
+        .nav__link:hover {
+            border-bottom: 2px solid #ffcb9a;
+        }
+
+        /* Main content */
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .intro {
+            max-width: 600px;
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro__title {
+            color: #116466;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .intro__subtitle {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        /* Form */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form__label {
+            text-align: left;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .form__input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form__button {
+            background-color: #116466;
+            color: #fff;
+            padding: 10px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form__button:hover {
+            background-color: #0e5d56;
+        }
+
+        /* Result */
+        .result {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        /* Style for the submit button */
+        .form__submit {
+            background-color: #4cfcdfa8; 
+            color: #116466; 
+        }
+
+        .form__submit:hover {
+            background-color: #4cfcdfcf; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Header start -->
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                <li class="nav__item"><a href="algorithm_solution.html" class="nav__link active">Алгоритмическая задача</a></li>
+                <li class="nav__item"><a href="dom_js.html" class="nav__link">DOM JS</a></li>
+                <li class="nav__item"><a href="Form.html" class="nav__link">Форма</a></li>
+                <li class="nav__item"><a href="Table.html" class="nav__link">Таблица</a></li>
+                <li class="nav__item"><a href="https://electives.hse.ru/minor_programming_spb/" class="nav__link">Майнор</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header end -->
+
+    <!-- Content start -->
+    <main class="main">
+        <section class="intro">
+            <h1 class="intro__title">Решение алгоритмической задачи</h1>
+            <p class="intro__subtitle">Введите значения для сторон треугольника, чтобы узнать, существует ли он и является ли он прямоугольным.</p>
+            <form id="triangleForm" class="form">
+                <label for="sideX" class="form__label">Сторона X:</label>
+                <input type="number" id="sideX" name="sideX" class="form__input" required min="1" step="any">
+                
+                <label for="sideY" class="form__label">Сторона Y:</label>
+                <input type="number" id="sideY" name="sideY" class="form__input" required min="1" step="any">
+                
+                <label for="sideZ" class="form__label">Сторона Z:</label>
+                <input type="number" id="sideZ" name="sideZ" class="form__input" required min="1" step="any">
+                
+                <button type="submit" class="form__button" id="calculateButton">Рассчитать</button>
+                <button type="button" class="form__button form__submit" id="submitButton">Отправить</button>
+            </form>    
+
+            <p id="result" class="result"></p>
+        </section>
+    </main>
+    <!-- Content end -->
+
+    <script>
+        document.getElementById("triangleForm").addEventListener("submit", function (event) {
+            event.preventDefault(); 
+
+            const sideX = parseFloat(document.getElementById("sideX").value);
+            const sideY = parseFloat(document.getElementById("sideY").value);
+            const sideZ = parseFloat(document.getElementById("sideZ").value);
+
+            if (sideX + sideY > sideZ && sideX + sideZ > sideY && sideY + sideZ > sideX) {
+                let resultText = "Треугольник существует.";
+                if (
+                    sideX ** 2 + sideY ** 2 === sideZ ** 2 ||
+                    sideX ** 2 + sideZ ** 2 === sideY ** 2 ||
+                    sideY ** 2 + sideZ ** 2 === sideX ** 2
+                ) {
+                    resultText += " Он является прямоугольным.";
+                } else {
+                    resultText += " Он не является прямоугольным.";
+                }
+                document.getElementById("result").textContent = resultText;
+            } else {
+                document.getElementById("result").textContent = "Треугольник с такими сторонами не может существовать.";
+            }
+        });
+
+        // Обработчик для кнопки "Отправить"
+        document.getElementById("submitButton").addEventListener("click", function () {
+            const formData = new FormData(document.getElementById("triangleForm"));
+            fetch('https://example.com/submit_contact', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Данные успешно отправлены!');
+                } else {
+                    alert('Ошибка при отправке данных.');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Ошибка при отправке данных.');
+            });
+        });
+    </script>
+</body>
+</html>

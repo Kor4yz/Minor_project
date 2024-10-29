@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Формы. Отправляем данные на сервер</title>
+    <link rel="stylesheet" href="./css/style.css"> 
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('./img/form/abstract-futuristic-background-vector.jpg') no-repeat center center / cover;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #006DFE;
+        }
+
+        .header {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+
+            z-index: 1000; 
+            transition: transform 0.3s; 
+        }
+
+        .header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            max-width: 1200px; 
+        }
+
+        form {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 100px auto; 
+            padding: 20px;
+            max-width: 600px;
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header start -->
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__wrapper">
+                <nav class="header__nav">
+                    <div class="header__nav-close">
+                        <ul class="header__list">
+                            <li class="header__item">
+                                <a href="index.html" class="header__link">General</a>
+                            </li>
+                            <li class="header__item">
+                                <a href="algorithm_solution.html" class="header__link">Algorithmic task</a>
+                            </li>
+                            <li class="header__item">
+                                <a href="dom_js.html" class="header__link">DOM_JS</a>
+                            </li>
+                                                       
+                            <li class="header__item">
+                                <a href="Table.html" class="header__link">Drift cars</a>
+                            </li> 
+                            <li class="header__item">
+                                <a href="Form.html" class="header__link">Form</a>
+                            </li>
+                            <li>
+                                <a href="https://electives.hse.ru/minor_programming_spb/" class="header__link">Minor's website</a>
+                            </li>  
+                        </ul>
+                    </div>
+                </nav>
+                <div class="header__burger burger">
+                    <span class="burger__line burger__line_first"></span>
+                    <span class="burger__line burger__line_second"></span>
+                    <span class="burger__line burger__line_third"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header end -->
+
+    <h1 align="center">Формы. Отправляем данные на сервер</h1>
+
+    <!-- Форма для отправки личных контактных данных -->
+    <form action="https://example.com/submit_contact" method="post" class="contact-form">
+        <img src="./img/form/hse.png" alt="Логотип" class="form-logo">
+        <fieldset class="contact-form__wrap">
+            <legend>Личные контактные данные</legend>
+            <p class="contact-form__info">
+                <label for="last_name">Фамилия:</label>
+                <input type="text" name="last_name" id="last_name" class="contact-form__field" required value="Иванов">
+            </p>
+            <p class="contact-form__info">
+                <label for="first_name">Имя:</label>
+                <input type="text" name="first_name" id="first_name" class="contact-form__field" required value="Иван">
+            </p>
+            <p class="contact-form__info">
+                <label for="group">Группа:</label>
+                <input type="text" name="group" id="group" class="contact-form__field" required value="Группа ОПП 2024_07">
+            </p>
+            <p class="contact-form__info">
+                <label for="phone">Мобильный телефон:</label>
+                <input type="tel" name="phone" id="phone" class="contact-form__field" required value="+7 (999) 123-45-67">
+            </p>
+            <p class="contact-form__info">
+                <label for="email">Электронная почта:</label>
+                <input type="email" name="email" id="email" class="contact-form__field" required value="ivanov@example.com">
+            </p>
+            <p class="contact-form__info">
+                <label for="date">Дата отправки:</label>
+                <input type="date" name="date" id="date" class="contact-form__field" required value="2024-01-01">
+            </p>
+            <input type="hidden" name="form_type" value="contact_data">
+            <p>
+                <input type="reset" name="reset" value="Сбросить">
+                <input type="submit" name="submit_contact" value="Отправить" class="contact-form__submit">
+            </p>
+        </fieldset>
+    </form>
+    
+
+    <!-- Форма для отправки оригинальных данных -->
+    <form action="https://example.com/submit_order" method="post" class="order-form">
+        <img src="./img/form/hse.png" alt="Логотип" class="form-logo">
+        <fieldset class="order-form__wrap">
+            <legend>Оригинальные данные</legend>
+            <p class="order-form__info">
+                <label for="order_title">Название товара:</label>
+                <input type="text" name="order_title" id="order_title" class="order-form__field"  required value="Смартфон">
+            </p>
+            <p class="order-form__info">
+                <label for="quantity">Количество:</label>
+                <input type="number" name="quantity" id="quantity" class="order-form__field"  required value="1">
+            </p>
+            <p class="order-form__info">
+                <label for="delivery_option">Способ доставки:</label>
+                <input type="radio" name="delivery_option" value="courier" checked> Курьером
+                <input type="radio" name="delivery_option" value="pickup"> Самовывоз
+            </p>
+            <p class="order-form__info">
+                <label>Дополнительные услуги:</label>
+                <input type="checkbox" name="services[]" value="gift_wrapping"> Упаковка в подарок
+                <input type="checkbox" name="services[]" value="express_delivery"> Экспресс-доставка
+            </p>
+            <input type="hidden" name="form_type" value="order_data">
+            <p>
+                <input type="reset" name="reset" value="Сбросить">
+                <input type="submit" name="submit_order" value="Отправить" class="order-form__submit">
+            </p>
+        </fieldset>
+    </form>
+
+    <script>
+        let lastScrollTop = 0; 
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                header.classList.add('hidden'); 
+            } else {
+                header.classList.remove('hidden'); 
+            }
+            lastScrollTop = scrollTop; 
+        });
+    </script>
+</body>
+</html>
